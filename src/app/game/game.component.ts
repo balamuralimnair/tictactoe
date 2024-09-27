@@ -30,56 +30,76 @@ export class GameComponent {
   newBoard() {
     this.initboard();
     this.winner = false;
+    this.draw = false;
+    this.currentUser = 'X';
   }
 
   captureUserMove(row: number, column: number) {
     console.log("Row: ", row, " Col: ", column, this.currentUser);
-    
+
     if (this.board[row][column] == '' && !this.winner) {
       this.currentUser = this.currentUser == 'X' ? 'O' : 'X';
       this.board[row][column] = this.currentUser;
       this.checkWinner();
-      if(!this.winner) {
+      if (!this.winner) {
         this.checkDraw();
       }
     }
-    
+
   }
 
   checkWinner() {
+    console.log("Full Board: ", this.board);
     // Check columns
-    if(this.board[0][0] == this.board[0][1] && 
-      this.board[0][1] == this.board[0][2] && this.board[0][0]!='') {
-        this.winner = true;
-      }
+    if (this.board[0][0] == this.board[0][1] &&
+      this.board[0][1] == this.board[0][2] && this.board[0][0] != '') {
+      this.winner = true;
+    }
+    else if (this.board[1][0] == this.board[1][1] &&
+      this.board[1][1] == this.board[1][2] && this.board[1][0] != '') {
+      this.winner = true;
+    }
+    else if (this.board[2][0] == this.board[2][1] &&
+      this.board[2][1] == this.board[2][2] && this.board[2][0] != '') {
+      this.winner = true;
+    }
     // Check rows
-    else if (this.board[0][0] == this.board[1][0] && 
-      this.board[1][0] == this.board[2][0] && this.board[0][0]!='') {
+    else if (this.board[0][0] == this.board[1][0] &&
+      this.board[1][0] == this.board[2][0] && this.board[0][0] != '') {
+      this.winner = true;
+    }
+    else if (this.board[0][1] == this.board[1][1] &&
+      this.board[1][1] == this.board[2][1] && this.board[0][1] != '') {
+      this.winner = true;
+    }
+    else if (this.board[0][2] == this.board[1][2] &&
+      this.board[1][2] == this.board[2][2] && this.board[0][2] != '') {
       this.winner = true;
     }
     // Check diagonals 
-    else if (this.board[0][0] == this.board[1][1] && 
-      this.board[1][1] == this.board[2][2] && this.board[0][0]!='') {
+    else if (this.board[0][0] == this.board[1][1] &&
+      this.board[1][1] == this.board[2][2] && this.board[0][0] != '') {
       this.winner = true;
-    } else {
+    } 
+    else {
       this.winner = false;
     }
   }
 
   checkDraw() {
-   let emptyCellFound = false;
-    for(let i=0;i<this.rows;i++) {
-      for(let j=0;j<this.columns;j++) {
-        if(this.board[i][j] == '') {
+    let emptyCellFound = false;
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.columns; j++) {
+        if (this.board[i][j] == '') {
           emptyCellFound = true;
           break;
         }
-        if(emptyCellFound) {
+        if (emptyCellFound) {
           break;
         }
       }
     }
-    if(!emptyCellFound) {
+    if (!emptyCellFound) {
       this.draw = true;
     } else {
       this.draw = false;

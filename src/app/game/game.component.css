@@ -13,8 +13,9 @@ div.custom {
  */
  .game-board {
     display: grid;
-    grid-template-rows: 100px 100px 100px;
-    grid-template-columns: 100px 100px 100px;
+    justify-content: center;
+    grid-template-rows: 125px 125px 125px;
+    grid-template-columns: 125px 125px 125px;
 }
 
 body {
@@ -28,4 +29,10 @@ body {
   align-items: center;
   justify-content: center;
   color: #f1ef61;
+}
+p.win {
+    color: green;
+}
+p.draw {
+    color:brown
 }

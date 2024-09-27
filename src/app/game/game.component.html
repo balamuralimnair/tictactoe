@@ -1,5 +1,10 @@
 <br>
-<br>
+<h2>Tic Tac Toe Game</h2>
+<div>
+    <p>
+        <button class="btn btn-primary" (click)="newBoard()">New Game</button>
+    </p>
+</div>
 <!-- <div class="container text-center"> -->
 <div class="game-board">
     @for(row of board; track row; let rownum = $index) {
@@ -11,16 +16,10 @@
     }
     <!-- </div> -->
     }
-    @if(winner) {
-    <p>Congratulations Player {{currentUser}} wins!</p>
-    }
-    @if(draw) {
-    <p>Game has ended in a draw!</p>
-    }
 </div>
-<div>
-    <br>
-    <p>
-        <button class="btn btn-primary" (click)="newBoard()">New Game</button>
-    </p>
-</div>
+@if(winner) {
+<p class="win">Congratulations Player {{currentUser}} wins!Press New Game Button to start a new game.</p>
+}
+@if(draw) {
+<p class="draw">Game has ended in a draw! Press New Game Button to start a new game.</p>
+}

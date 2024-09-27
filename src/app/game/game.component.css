@@ -1,0 +1,31 @@
+/* .col {
+    background-color: rgb(243, 227, 243);
+    border-color: purple;
+    border: 1px solid white;
+}
+.row {
+    border-color: white;
+}
+div.custom {
+    background-color: rgb(248, 241, 248);
+    border-color: purple;
+}
+ */
+ .game-board {
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+.box {
+  background: #0a0a0a;
+  border: 1px solid #777474;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f1ef61;
+}

@@ -1,0 +1,26 @@
+<br>
+<br>
+<!-- <div class="container text-center"> -->
+<div class="game-board">
+    @for(row of board; track row; let rownum = $index) {
+    <!-- <div > -->
+    @for(column of row; track column; let colnum = $index) {
+    <div class="box" (click)="captureUserMove(rownum,colnum)">{{board[rownum][colnum]}}
+        <!-- <input type="text" (click)="captureUserMove(rownum,colnum)" [value]="board[rownum][colnum]"> -->
+    </div>
+    }
+    <!-- </div> -->
+    }
+    @if(winner) {
+    <p>Congratulations Player {{currentUser}} wins!</p>
+    }
+    @if(draw) {
+    <p>Game has ended in a draw!</p>
+    }
+</div>
+<div>
+    <br>
+    <p>
+        <button class="btn btn-primary" (click)="newBoard()">New Game</button>
+    </p>
+</div>

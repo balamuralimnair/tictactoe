@@ -1,0 +1,17 @@
+.nav-bar {
+    display: grid;
+    justify-content: left;
+    grid-template-rows: 22px 22px;
+    grid-template-columns: 220px 220px;
+}
+
+.selected {
+    background-color:azure;
+    color: purple;
+    font-weight: bold;
+}
+
+a.selected:hover {
+    cursor: none;
+}
+
